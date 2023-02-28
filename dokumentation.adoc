@@ -1,0 +1,20 @@
+= Dokumentation LF10b
+
+== Grundlegende Linux Kommandos
+
+* `ls` Inhalt eines Verzeichnisses anzeigen
+* `ls -a` zeigt _alles_ an, auch versteckte Dateien (Kurzform)
+* `ls --all` zeigt _alles_ an, auch versteckte Dateien (Langform)
+* `ls -l` zeigt ausführliche Informationen der Dateien an
+* `touch` leere Datei(en) zu erstellen
+* `clear` leert den Bildschirm
+* `rm` Dateien löschen
+* `ssh user@hostname` als Bentuzer `user` auf `hostname` anmelden (Secure Shell)
+* `whoami` gibt den aktuell angemeldeten Benutzer aus
+* `pwd` absoluten Pfad des aktuellen Verzeichnisses an
+* `nano` einfacher Texteditor (auf fast allen Distributionen vorinstalliert)
+* `history` Liste alle bisher eingegebenen Befehle 
+* `ip address` listet alle Netzwerkadapter inkl. ihrer Konfiguration (IP Adresse etc.)
+* `ip addr` listet alle Netzwerkadapter inkl. ihrer Konfiguration (IP Adresse etc.)
+* `ip a` listet alle Netzwerkadapter inkl. ihrer Konfiguration (IP Adresse etc.)
+* `systemctl status ssh` zeigt an, ob der Dienst `ssh` läuft 
