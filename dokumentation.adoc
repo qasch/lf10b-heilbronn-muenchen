@@ -18,3 +18,60 @@
 * `ip addr` listet alle Netzwerkadapter inkl. ihrer Konfiguration (IP Adresse etc.)
 * `ip a` listet alle Netzwerkadapter inkl. ihrer Konfiguration (IP Adresse etc.)
 * `systemctl status ssh` zeigt an, ob der Dienst `ssh` läuft 
+* `man <kommando>` Handbuchseite von `<kommando>`
+* `cd verzeichnis` wechselt in das Verzeichnis `verzeichnis`
+* `cd` wechselt direkt ins Heimatverzeichnis des aktuellen Benutzers
+* `cd -` wechselt zwichen dem aktuellen und vorherigen Verzeichnis
+* `echo was auch immer` gibt den Text `was auch immer` auf der Shell aus
+* `less`: ist ein Pager, d.h. ein Programm, dass Text(ströme) so anzeigen kann, dass man sich darin bewegen/scrollen kann, darin suchen kann etc.
+* `grep` sucht nach Text innerhalb von Dateien
+* `grep alias ~/.bashrc` gibt alle Zeilen der Datei `.bashrc` aus, in denen der Suchbegriff, das Pattern `alias` vorkommt
+* `wc -l` zählt die Anzahl der Zeilen eines Textstroms
+
+== Zwei Arten von Kommandos:
+
+* extern realisiert (rm, ls, man, date ...)
+* interne Kommandos (in die BASH eingebaut): Builtins
+
+== Pfadangaben - der Weg zu einer Datei
+
+* relativer Pfad: ausgehend vom aktuellen Verzeichnis
+* absoluter Pfad: ausgehend von der Wurzel (`/`) des Dateisystems
+
+== Umleitungen und Redirect
+
+=== Unix/Linux Philosophie
+
+1. Schreibe Programme, die genau eine Sache tun, und diese sollen sie gut machen
+2. Schreibe Programme, die zusammenarbeiten
+3. Schreibe Programme, die mit Textströmen umgehen können, denn das ist ein universelles Interface
+
+==== KISS - Prinzip
+
+* Keep it simple, stupid!
+* Keep it stupid simple
+* Keep it super simple
+* -> Halte es so einfach wie möglich
+
+=== Kanäle/Streams
+
+* `stdin`: Standardeingabekanal - `0` 
+* `stdout`: Standardausgabekanal - `1`
+* `stderr`: Standardfehlerkanal - `2`
+
+*Jedes* Kommando ist verknüpft mit diesen drei Kanälen.
+
+=== Kanäle umleiten
+
+* `>` einfacher Redirect: leitet Kanäle um, erzeugt Datei bzw. überschreibt Inhalt
+* `>>` doppelter Redirect: leitet Kanäle um, erzeugt Datei, überschreibt Inhalt *nicht*, sondern hängt ihn an das Ende der Datei an
+* `|` die _Pipe_ leitet die Standardausgabe eines Kommandos um in die Standardeingabe eines anderen Kommandos
+
+==== Beispiele
+
+* `cat 1>ausgabekanal.txt` leitet alle den Standardausgabekanal von `cat` um in die Datei `ausgabekanal.txt` (die `1` kann in diesem Fall auch weggelassen werden)
+* `cat datei.txt > kopie.txt` schreibt den Inhalt von `datei.txt` in die Datei `kopie.txt`
+* `echo huhu > datei.txt` schreibt den Text `huhu` in die Datei `datei.txt`
+* `ls -l /etc > ls_ausgabe.txt` schreibt die Ausgabe des Kommandos `ls -l /etc` in die Datei `ls_ausgabe.txt`
+* `ls -l alksjdlkjflkasldkjf 2> ls_fehler.txt` da dieses Kommando einen Fehler produziert, wird die Ausgabe, also der Fehlerkanal in die Datei `ls_fehler.txt` geschrieben
+* `ls -l /etc | wc -l` zählt die Anzahl der Dateien und Verzeichnisse im Verzeichnis `/etc`
