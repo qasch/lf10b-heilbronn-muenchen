@@ -75,3 +75,75 @@
 * `ls -l /etc > ls_ausgabe.txt` schreibt die Ausgabe des Kommandos `ls -l /etc` in die Datei `ls_ausgabe.txt`
 * `ls -l alksjdlkjflkasldkjf 2> ls_fehler.txt` da dieses Kommando einen Fehler produziert, wird die Ausgabe, also der Fehlerkanal in die Datei `ls_fehler.txt` geschrieben
 * `ls -l /etc | wc -l` zählt die Anzahl der Dateien und Verzeichnisse im Verzeichnis `/etc`
+
+== Prozesse
+
+* `PID` Process ID, bestimmt einen Prozess eindeutig
+* `init` Mutter aller Prozesse
+* `systemd` auf fast allen modernen Systemen für das Starten und Steuern von Diensten zuständig 
+* An Prozesse können Signale gesendet werden:
+* `kill -15 4711` `kill -s SIGTERM 4711` freundliche Aufforderung an den Prozess, sich zu beenden
+* `kill -9 4711` tötet den Prozess, keine Gegenwehr möglich
+* `killall -15 sleep` beendet alle Prozesse mit dem Namen `sleep` ordnungsgemäß
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
