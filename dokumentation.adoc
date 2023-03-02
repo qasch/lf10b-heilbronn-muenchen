@@ -86,7 +86,76 @@
 * `kill -9 4711` tötet den Prozess, keine Gegenwehr möglich
 * `killall -15 sleep` beendet alle Prozesse mit dem Namen `sleep` ordnungsgemäß
 
+== Benutzer
 
+Es gibt zwei Arten von Benutzern: 
+
+* _reale_ Benutzer 
+* _Systembenutzer_ oder _Pseudobenutzer_
+
+Reale Benutzer können sich mit einer Shell (z.B. `/bin/bash`) interaktiv am System anmelden und so Kommandos ausführen.
+
+System- oder Pseudobenutzer sind zur Steuerunt von Diensten da. Die Dienste laufen dann also mit den (eingeschränkten) Rechten dieser Benutzer.
+
+==== Ändern der Besitzverhältnisse
+
+ chown user:group datei    # Besitzer und Gruppe ändern
+ chown user datei    	   # nur Besitzer ändern
+ chown :group datei        # nur Gruppe ändern
+
+ chown karla datei         # karla als Besitzer von datei festlegen 
+ chown tux:karla datei     # tux als Besitzer von datei festlegen, datei der Gruppe karla zuweisen
+ chgroup karla datei       # datei der Gruppe karla zuweisen
+
+== Berechtigungen
+
+Es gibt folgende Berechtigungen:
+
+ r : read 
+ w : write
+ x : execute
+
+ - : Recht nicht vorhanden
+
+Verzeichnislisting mit `ls -l`:
+
+ user  group other
+ rw-   r--   r-- 
+----
+
+=== Symbolische Rechtevergabe
+
+ chmod u-w datei    # User Schreibrecht entziehen
+ chmod g+w datei    # Gruppe Schreibrecht hinzufügen
+ chmod o+x datei    # Others Ausführungsrechte hinzufügen
+ chmod a-wx datei   # Allen (User, Group, Others) Ausführungsrechte und Schreibrecht entziehen
+
+=== Oktale Rechtevergabe
+
+Die einzelnen Rechte werden auch oktal repräsentiert:
+
+ s: symbolisch
+ o: okal
+ b: binär
+
+ s   o    b
+ -----------
+ r : 4   100
+ w : 2   010
+ x : 1   001  
+
+
+Grund für die oktale Rechtevergabe bzw. interne Repräsentation auf dem Datenträger:
+
+  7  6  4    Oktal
+ 111110100   Binär
+ rwxrw-r--   Symbolisch
+
+
+Dateiberechtigungen folgendermaßen setzen: User: `rwx`, Group: `rw`, Others: `r`
+
+       ugo
+ chmod 764 datei
 
 
 
