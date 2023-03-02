@@ -115,7 +115,7 @@ Es gibt folgende Berechtigungen:
  w : write
  x : execute
 
- - : Recht nicht vorhanden
+ \- : Recht nicht vorhanden
 
 Verzeichnislisting mit `ls -l`:
 
