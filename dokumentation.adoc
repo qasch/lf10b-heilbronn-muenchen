@@ -154,9 +154,7 @@ Dateiberechtigungen folgendermaßen setzen: User: `rwx`, Group: `rw`, Others: `r
        ugo
  chmod 764 datei
 
-
-
-
+*Hinweis:* Bei der oktalen Rechtevergabe können Berechtigungen nur *komplett* vergeben werden, also nur für Besitzer, Gruppe und Others in einem, nicht einzeln für z.B. den Besitzer. 
 
 
 
