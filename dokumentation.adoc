@@ -121,7 +121,6 @@ Verzeichnislisting mit `ls -l`:
 
  user  group other
  rw-   r--   r-- 
-----
 
 === Symbolische Rechtevergabe
 
@@ -144,13 +143,11 @@ Die einzelnen Rechte werden auch oktal repräsentiert:
  w : 2   010
  x : 1   001  
 
-
 Grund für die oktale Rechtevergabe bzw. interne Repräsentation auf dem Datenträger:
 
   7  6  4    Oktal
  111110100   Binär
  rwxrw-r--   Symbolisch
-
 
 Dateiberechtigungen folgendermaßen setzen: User: `rwx`, Group: `rw`, Others: `r`
 
