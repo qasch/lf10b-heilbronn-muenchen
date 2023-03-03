@@ -157,10 +157,30 @@ Dateiberechtigungen folgendermaßen setzen: User: `rwx`, Group: `rw`, Others: `r
 *Hinweis:* Bei der oktalen Rechtevergabe können Berechtigungen nur *komplett* vergeben werden, also nur für Besitzer, Gruppe und Others in einem, nicht einzeln für z.B. den Besitzer. 
 
 
+== Installation von Software
 
+* Software in Paketen gebündelt (ausführbare Datei, Handbauchseiten, Konfigurationsdateien etc.)
+* Pakete werden auf speziellen Servern gehostet (Paketquellen/Repository)
+* dazu werden Paketmanager genutzt (`apt` auf Debian, `dnf` auf RedHat etc.)
+* Upgrade *aller* auf dem System vorhandener Software:
+** `apt update` Paketquellen aktualisieren
+** `apt upgrade` aktualisiert alle Pakete, für die es eine neue Version gibt
+* Installationsschritte:
+** `apt update` Paketquellen aktualisieren
+** `apt install <paket>` Paketquellen aktualisieren
+* Pakete entfernen:
+** `apt remove <paket>` Paket <paket> entfernen
 
+== sudo 
 
+* mit `sudo` kann man unter anderem für ein Kommando erhöhte Rechte, also Root (bzw. Administrator)-Rechte erlangen:
 
+ sudo apt install <package>
+
+* dazu muss das Paket `sudo` installiert werden
+* und unter Debian die Benutzer, die `sudo` benutzen können sollen, der Gruppe `sudo` hinzugefügt werden
+* wird ein Kommando mit `sudo` ausgeführt, so muss das _eigene_ Benutzerpasswort, nicht das Root-Passwort eingegeben werden
+* die erhöhten Rechte gelten nur für dieses eine Kommando
 
 
 
