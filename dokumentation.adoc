@@ -97,6 +97,16 @@ Reale Benutzer können sich mit einer Shell (z.B. `/bin/bash`) interaktiv am Sys
 
 System- oder Pseudobenutzer sind zur Steuerunt von Diensten da. Die Dienste laufen dann also mit den (eingeschränkten) Rechten dieser Benutzer.
 
+=== Benutzer und Gruppen erstellen
+
+* `adduser tux` erstellt den Benutzer `tux` interaktiv, inkl. Passwort
+* `addgroup gfn` erstellt die Gruppe `gfn`
+
+=== Gruppenzugehörigkeiten ändern
+
+* `usermod -aG gfn tux`: den Benutzer `tux` der Gruppe `gfn` hinzufügen
+* Hinweis: Benutzer und Gruppe müssen bereits existieren
+
 ==== Ändern der Besitzverhältnisse
 
  chown user:group datei    # Besitzer und Gruppe ändern
