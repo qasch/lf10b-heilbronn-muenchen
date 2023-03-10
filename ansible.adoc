@@ -1,0 +1,42 @@
+= SSH
+
+== Public Key Authentication
+
+Auf dem Client (Ansible) wird ein Schlüsselpaar erzeugt mit dem Kommanod `ssh-keygen`. Das Kommando als regulärer Benutzer ausführen, nicht als `root`.
+
+Das Schlüsselpaar besteht aus:
+
+* einem _privaten_ Schlüssel (z.B. `id_rsa`)
+* einem _öffentlichen Schlüssel (z.B. `id_rsa.pub`)
+
+Diese werden im Verzeichnis `.ssh` des Heimatverzeichnisses des Bentuzers abgelegt, der das Kommando `ssh-keygen` aufgrerufen hat.
+
+Dies Schlüssel "gehören" also zu einem bestimmten Benutzer und können/sollten nur von diesem benutzt werden.
+
+Mit dem *öffentlichen* Schlüssel können wir *ver*schlüsseln,
+mit dem dazugehörigen *privaten* Schlüssel können wir *ent*schlüsseln.
+
+Beim Erstellen des Schlüsselpaars können wir den _privaten_ Schlüssel zusätzlich mit einer Passphrase verschlüsseln. Das erhöht die Sicherheit. Sollte der _private_ Schlüssel in falsche Hände geraten, ist er nutzlos, denn es braucht zusätzlich die Passphrase, um ihn zu entschlüsseln und somit benutzen zu können.
+
+=== Öffentlichen Schlüssel auf Zielserver übertragen
+
+Mit dem Kommando `ssh-copy-id user@hostname` kann der Public Key auf den Server mit dem Hostnamen `hostname` übertragen werden. Anschießend kann eine SSH Verbindung zu dem Benutzer `user` auf dem Server `hostname` aufgebaut werden. Zur Authentifizierung wird die Public-Key Authentication verwedet und nicht mehr die Authentifizierung mittels Passwort.
+
+
+= Ansible
+
+== Inventory
+
+Die Datei `/etc/ansible/hosts` ist das sog. _Inventory_. Also die Datei, die alle Server enthält, die wir mit Ansible verwalten.
+
+Server können zu Gruppen zusammengefasst werden:
+
+ [Gruppenname]
+ 192.168.1.100
+ 192.168.1.101
+ 192.168.1.102
+ sub.domain.org
+
+Einträge können IP Adressen oder URLs sein.
+
+
